@@ -1,0 +1,5 @@
+{
+  "name": "Copy of FastBusiness POS",
+  "description": "A modern, responsive Point of Sale (POS) dashboard application built with React, TypeScript, and Tailwind CSS. It provides visualizations for sales data, top products, customer analytics, and more.",
+  "requestFramePermissions": []
+}

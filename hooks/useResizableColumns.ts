@@ -1,5 +1,7 @@
 // FIX: Import React to resolve namespace errors for React.MouseEvent and React.useEffect.
-import { useState, useRef, useCallback, useEffect, MouseEvent } from 'react';
+// FIX START: Imported React namespace and updated MouseEvent type.
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+// FIX END
 
 interface Column {
   key: string;
@@ -13,7 +15,9 @@ export const useResizableColumns = (initialColumns: Column[]) => {
   const startX = useRef(0);
   const startWidths = useRef<number[]>([]);
 
-  const onMouseDown = useCallback((index: number, e: MouseEvent) => {
+  // FIX START: Changed MouseEvent to React.MouseEvent
+  const onMouseDown = useCallback((index: number, e: React.MouseEvent) => {
+  // FIX END
     activeResizerIndex.current = index;
     startX.current = e.clientX;
     startWidths.current = columns.map(c => c.width);
@@ -53,7 +57,9 @@ export const useResizableColumns = (initialColumns: Column[]) => {
   }, [onMouseMove, onMouseUp]);
 
   const resizerProps = (index: number) => ({
-    onMouseDown: (e: MouseEvent) => onMouseDown(index, e),
+    // FIX START: Changed MouseEvent to React.MouseEvent
+    onMouseDown: (e: React.MouseEvent) => onMouseDown(index, e),
+    // FIX END
   });
 
   return { columns, resizerProps };

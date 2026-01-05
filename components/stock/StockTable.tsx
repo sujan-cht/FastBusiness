@@ -41,7 +41,9 @@ const StockTable: React.FC<StockTableProps> = ({ items }) => {
               <td className={`px-3 py-1.5 font-bold text-right ${item.quantity <= 0 ? 'text-red-500' : 'text-text-primary'}`}>
                   {/* FIX: Argument of type '{ minimumFractionDigits: number; }' is not assignable to parameter of type '{ minimumFractionDigits: number; maximumFractionDigits: number; }'. */}
                   {/* FIX: Add maximumFractionDigits to satisfy the type requirement for the options parameter. */}
+                  {/* FIX START: Added maximumFractionDigits to satisfy the type requirement. */}
                   {formatNumber(item.quantity, {minimumFractionDigits: 0, maximumFractionDigits: 0})}
+                  {/* FIX END */}
               </td>
               <td className="px-3 py-1.5">{item.unit}</td>
               <td className="px-3 py-1.5 text-right">{currency}{formatNumber(item.costPrice)}</td>
